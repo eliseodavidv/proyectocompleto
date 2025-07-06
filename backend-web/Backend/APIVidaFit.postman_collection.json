@@ -1,0 +1,826 @@
+{
+	"info": {
+		"_postman_id": "4d1478ac-84b4-44a2-b29c-4246151b3cd9",
+		"name": "APIVidaFit",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34096719",
+		"_collection_link": "https://dbp1-proyecto01.postman.co/workspace/8d24d317-fe77-45d0-b635-43677d05c159/collection/34096719-4d1478ac-84b4-44a2-b29c-4246151b3cd9?action=share&source=collection_link&creator=34096719"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"item": [
+				{
+					"name": "User1",
+					"item": [
+						{
+							"name": "User 1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Paolo Centeno\",\n    \"email\": \"efren.centeno@utec.edu.pe\",\n    \"password\":\"123abc\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8090/auth/register"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "User 2",
+					"item": [
+						{
+							"name": "User 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Darlene Escobar\",\n    \"email\": \"darlene.escobar@utec.edu.pe\",\n    \"password\":\"123abc\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8090/auth/register"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "User 1",
+					"item": [
+						{
+							"name": "Login User 1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"efren.centeno@utec.edu.pe\",\n    \"password\":\"123abc\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8090/auth/login"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "User 2",
+					"item": [
+						{
+							"name": "Login User 2",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{idUsuario2}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"darlene.escobar@utec.edu.pe\",\n    \"password\":\"123abc\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8090/auth/login"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "PublicacionRutina",
+			"item": [
+				{
+					"name": "Ejercicio",
+					"item": [
+						{
+							"name": "Ejercicio1",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{idUsuario2}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nombre\": \"Plancha\",\n  \"descripcion\": \"Fortalecimiento de core\",\n  \"series\": 3,\n  \"repeticiones\": 1,\n  \"descansoSegundos\": 90,\n  \"pesoKg\": 0\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8090/api/ejercicios"
+							},
+							"response": []
+						},
+						{
+							"name": "Ejercicio 2",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{idUsuario2}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nombre\": \"Sentadilla\",\n  \"descripcion\": \"Fortalecimiento de core\",\n  \"series\": 5,\n  \"repeticiones\": 2,\n  \"descansoSegundos\": 60,\n  \"pesoKg\": 10\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8090/api/ejercicios"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Rutina 1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{idUsuario2}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titulo\": \"Rutina principiantes\",\n    \"contenido\": \"Incluye planchas\",\n    \"nombreRutina\": \"Principiantes 1\",\n    \"duracion\": 45,\n    \"frecuencia\": \"3 veces por semana\",\n    \"nivel\": \"principiante\",\n    \"ejercicioIds\": [1]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8090/api/publicaciones/rutinas"
+					},
+					"response": []
+				},
+				{
+					"name": "Rutina 2",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{idUsuario2}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titulo\": \"Rutina full body principiantes\",\n    \"contenido\": \"Incluye sentadillas y planchas.\",\n    \"nombreRutina\": \"Full Body 2\",\n    \"duracion\": 45,\n    \"frecuencia\": \"4 veces por semana\",\n    \"nivel\": \"principiante\",\n    \"ejercicioIds\": [1, 2]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8090/api/publicaciones/rutinas"
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8090/api/publicaciones/rutinas"
+					},
+					"response": []
+				},
+				{
+					"name": "_Get Rutina Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"titulo\": \"Rutina full body principiantes\",\n  \"contenido\": \"Incluye sentadillas, planchas y abdominales.\",\n  \"nombreRutina\": \"Full Body 1\",\n  \"duracion\": 45,\n  \"frecuencia\": \"3 veces por semana\",\n  \"nivel\": \"principiante\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8090/api/publicaciones/rutinas/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Publicacion",
+			"item": [
+				{
+					"name": "Publicación",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{idUsuario2}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"titulo\": \"Dieta para perder grasa\",\n  \"contenido\": \"Plan de comidas bajo en carbohidratos para 4 semanas\",\n  \"userId\": 1\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8090/api/publicaciones"
+					},
+					"response": []
+				},
+				{
+					"name": "Publicaciones",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{idUsuario2}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"titulo\": \"Dieta para perder grasa\",\n  \"contenido\": \"Plan de comidas bajo en carbohidratos para 4 semanas\",\n  \"userId\": 1\n}\n"
+						},
+						"url": "http://localhost:8090/api/publicaciones/2"
+					},
+					"response": []
+				},
+				{
+					"name": "by autor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{idUsuario2}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8090/api/publicaciones/autor"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PublicacionPlanAlimentacion",
+			"item": [
+				{
+					"name": "publicaciones/planes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{idUsuario2}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"titulo\": \"Dieta para perder grasa\",\n  \"contenido\": \"Plan de comidas bajo en carbohidratos para 4 semanas\",\n  \"tipoDieta\": \"Baja en carbohidratos\",\n  \"calorias\": 1800,\n  \"objetivos\": \"Pérdida de grasa corporal\",\n  \"restricciones\": \"Sin gluten\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8090/api/publicaciones/planes"
+					},
+					"response": []
+				},
+				{
+					"name": "publicaciones/planes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8090/api/publicaciones/planes"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comentario",
+			"item": [
+				{
+					"name": "AllComentarios",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{idUsuario2}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"contenido\": \"¡Qué buena publicación!\",\n  \"publicacionId\": 1\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8090/api/comentarios"
+					},
+					"response": []
+				},
+				{
+					"name": "Comentario/publicacion/id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{idUsuario2}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"contenido\": \"¡Qué buena publicación!\",\n  \"publicacionId\": 1\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8090/api/comentarios/publicacion/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Progreso",
+			"item": [
+				{
+					"name": "progreso1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{idUsuario2}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"peso\": 80,\n  \"porcentajeGrasa\": 18.2,\n  \"notas\": \"Mejorando en la dieta\",\n  \"fecha\": \"2025-05-10\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8090/api/progresos"
+					},
+					"response": []
+				},
+				{
+					"name": "progreso2",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{idUsuario2}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"peso\": 70,\n  \"porcentajeGrasa\": 18.2,\n  \"notas\": \"Mejorando en la dieta\",\n  \"fecha\": \"2025-05-15\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8090/api/progresos"
+					},
+					"response": []
+				},
+				{
+					"name": "progreso3",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{idUsuario2}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"peso\": 68.5,\n  \"porcentajeGrasa\": 18.2,\n  \"notas\": \"Mejorando en la dieta\",\n  \"fecha\": \"2025-05-25\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8090/api/progresos"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PublicacionProgreso",
+			"item": [
+				{
+					"name": "Progreso entre fecha",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{idUsuario2}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/api/publicaciones/progreso?inicio=2025-05-01&fin=2025-05-29",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"publicaciones",
+								"progreso"
+							],
+							"query": [
+								{
+									"key": "inicio",
+									"value": "2025-05-01"
+								},
+								{
+									"key": "fin",
+									"value": "2025-05-29"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Grupo",
+			"item": [
+				{
+					"name": "Crear un grupo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{idUsuario2}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"Grupo Fit 2025\",\n  \"descripcion\": \"Nos apoyamos con rutinas y dieta saludable\",\n  \"tipo\": \"PUBLICO\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/grupos/crear?adminId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"grupos",
+								"crear"
+							],
+							"query": [
+								{
+									"key": "adminId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar todos los grupos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8090/grupos"
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar un miembro a un grupo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{idUsuario2}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/grupos/1/agregar-miembro?userId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"grupos",
+								"1",
+								"agregar-miembro"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "grupos/publicos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8090/grupos/publicos"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Publicar en el grupo",
+			"item": [
+				{
+					"name": "publicaciones/grupo/crear",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{idUsuario2}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "titulo",
+									"value": "Hola",
+									"type": "text"
+								},
+								{
+									"key": "contenido",
+									"value": "hola",
+									"type": "text"
+								},
+								{
+									"key": "userId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "grupoId",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:8090/publicaciones/grupo/crear"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Compartir publicacion externa",
+			"item": [
+				{
+					"name": "compartir publicacion",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{idUsuario2}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "grupoId",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:8090/api/publicacionescompartidas/1/compartir"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Verificar Publicacion",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{idEspecialista}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "especialistaId",
+								"value": "2",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "especialistaId",
+									"value": "1",
+									"description": "//usuario 2 es especialista",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:8090/api/verificacion/1/verificar"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Metas",
+			"item": [
+				{
+					"name": "crear Meta",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{idUsuario2}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"descripcion\": \"Correr 10km en 2 semanas\",\n  \"fechaInicio\": \"2025-05-25\",\n  \"fechaFin\": \"2025-06-08\",\n  \"cumplida\": false\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/api/metas/crear?userId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"metas",
+								"crear"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get meta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8090/api/metas/usuario/1"
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "http://localhost:8090/api/metas/1/cumplida"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
